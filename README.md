@@ -21,6 +21,3 @@
 果可视化。
 
 <img src="https://img1.baidu.com/it/u=2468979443,3774439126&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=383" alt="东京奥运吉祥物" />
-
-
-
