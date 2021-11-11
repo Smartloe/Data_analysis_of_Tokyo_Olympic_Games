@@ -20,7 +20,7 @@
 等数据，分析 2020 东京奥运会奖牌分布情况和奖牌变化情况，并且利用 Pyecharts 将分析结
 果可视化。
 
-<img src="https://gitee.com/Smartloe/img/raw/master/img/image-20211111115118065.png" alt="image-20211111115118065" style="zoom:67%;" />
+<img src="https://img1.baidu.com/it/u=2468979443,3774439126&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=383" alt="东京奥运吉祥物" />
 
 
 
