@@ -11,6 +11,10 @@ def to_read_data():
 
 # 数据预处理：空值处理，简单筛选
 def data_pre_processing(data):
-	data[0] = data[0][~(data[0]['日期'].isnull())]  # 删掉空行
-	print(data[0])
+	medals_data = []
+	for i in data:
+		i = i[~(i['日期'].isnull())]  # 删掉空行
+		i['countryid'] = 'CHN'	# 筛选出中国的数据
+		medals_data.append(i)
+	print(medals_data)
 data_pre_processing(to_read_data())
