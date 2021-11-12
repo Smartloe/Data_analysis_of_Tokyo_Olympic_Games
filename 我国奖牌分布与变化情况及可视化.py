@@ -10,7 +10,8 @@ def to_read_data():
 	return medals_data
 
 # 数据预处理：空值处理，简单筛选
-def data_pre_processing(data):
+def data_pre_processing():
+	data = to_read_data()
 	medals_data = []
 	for i in data:
 		i = i[~(i['日期'].isnull())]  # 删掉空行
@@ -18,4 +19,11 @@ def data_pre_processing(data):
 		medals_data.append(i)
 	return medals_data
 
-# 可视化part1：桑基图
+# 可视化part1：折线图
+def line_chart(data):
+	pass
+
+
+
+if __name__ == "__main__":
+	line_chart(data_pre_processing())
