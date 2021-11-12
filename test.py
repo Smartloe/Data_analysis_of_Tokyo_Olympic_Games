@@ -16,5 +16,5 @@ def str_count(s):
 
 
 if __name__ == "__main__":
-	s = input("请输入一段字符串")
+	s = input("请输入一段字符串:")
 	print(str_count(s))
