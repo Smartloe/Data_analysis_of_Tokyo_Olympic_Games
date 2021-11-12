@@ -17,4 +17,5 @@ def data_pre_processing(data):
 		i = i.loc[i['countryid'].str.contains('CHN')]	# 筛选出中国的数据
 		medals_data.append(i)
 	return medals_data
-data_pre_processing(to_read_data())
+
+# 可视化part1：桑基图
