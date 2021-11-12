@@ -259,7 +259,7 @@ def medals_change_with_view(data):
 			.add(
 				bar, 
 				grid_opts=opts.GridOpts(
-					pos_right="45%", pos_top="20%",pos_bottom="1%"
+					pos_left="35px", pos_right="60%", pos_top="10%",pos_bottom="1%"
 				),
 			)
 			.add(
@@ -271,7 +271,17 @@ def medals_change_with_view(data):
 
 		)
 
-		tl.add_schema(symbol='diamond',is_auto_play=True,)
+		tl.add_schema(
+			symbol='diamond',
+			is_auto_play=True,
+			orient="vertical",
+			# play_interval=5000, 
+			width="60",
+			pos_left="null",
+        	pos_right="10%",
+        	pos_top="20",
+        	pos_bottom="20"
+        )
 		tl.add(grid_chart, "{}".format(time_line[i]))
 		tl.render('东京奥运会奖牌榜.html')
 	return tl
