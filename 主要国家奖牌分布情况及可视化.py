@@ -40,7 +40,6 @@ def data_reading():
 	return data
 
 
-
 # 美国,日本,英国,俄罗斯奥运队擅长的运动项目数据分析
 def good_projects(data):
 	countryids = ['USA','JPN','GBR','ROC']
@@ -120,6 +119,7 @@ def good_projects_view(data):
 				),
 			)
 		)
+
 	# 英国
 	c_cbr = (
 		Pie(init_opts=opts.InitOpts(width="50%", height="400px"))
