@@ -9,6 +9,7 @@ def to_read_data():
 		medals_data.append(medals_datum)
 	return medals_data
 
+
 # 数据预处理：空值处理，简单筛选
 def data_pre_processing():
 	data = to_read_data()
@@ -19,9 +20,14 @@ def data_pre_processing():
 		medals_data.append(i)
 	return medals_data
 
+
 # 可视化part1：折线图
 def line_chart(data):
-	pass
+	# 透视数据
+	df_p = data[0].pivot_table(index='日期',    # 透视的行，分组依据
+						  values='名次',    # 值
+						  aggfunc='sum'    # 聚合函数
+						 )
 
 
 
