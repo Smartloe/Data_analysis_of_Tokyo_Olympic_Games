@@ -14,7 +14,7 @@ def data_pre_processing(data):
 	medals_data = []
 	for i in data:
 		i = i[~(i['日期'].isnull())]  # 删掉空行
-		i['countryid'] = 'CHN'	# 筛选出中国的数据
+		i = i.loc[i['countryid'].str.contains('CHN')]	# 筛选出中国的数据
 		medals_data.append(i)
-	print(medals_data)
+	return medals_data
 data_pre_processing(to_read_data())
