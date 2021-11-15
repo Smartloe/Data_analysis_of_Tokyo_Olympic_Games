@@ -241,11 +241,11 @@ def medals_change_with_view(data):
 	for i in range(0,16):
 		# 东京奥运会奖牌变化条形图
 		bar = (
-			Bar(init_opts=opts.InitOpts(chart_id=1))
+			Bar(init_opts=opts.InitOpts(chart_id=1, bg_color="#f6f5f5"))
 			.add_xaxis(['USA','CHN', 'JPN','GBR','ROC'])
-			.add_yaxis("金牌", golds_nums[i], label_opts=opts.LabelOpts(position="right"))
-			.add_yaxis("银牌", silvers_nums[i], label_opts=opts.LabelOpts(position="right"))
-			.add_yaxis("铜牌", bronzes_nums[i], label_opts=opts.LabelOpts(position="right"))
+			.add_yaxis("金牌", golds_nums[i], color="#CD7F32", label_opts=opts.LabelOpts(position="right"))
+			.add_yaxis("银牌", silvers_nums[i], color="#C0C0C0", label_opts=opts.LabelOpts(position="right"))
+			.add_yaxis("铜牌", bronzes_nums[i], color="#FFD700", label_opts=opts.LabelOpts(position="right"))
 			.reversal_axis()
 			.set_global_opts(
 				title_opts=opts.TitleOpts("东京奥运会奖牌榜 (时间: 2021年)")
@@ -285,11 +285,10 @@ def medals_change_with_view(data):
   #       	pos_top="20",
   #       	pos_bottom="20"
   #       )
-		tl.add_schema(symbol='diamond')
+		tl.add_schema(symbol='diamond', is_auto_play=True)
 		tl.add(bar, "{}".format(time_line[i]))
 		tl.render('东京奥运会奖牌榜.html')
 	return tl
-
 
 
 if __name__ == "__main__":
