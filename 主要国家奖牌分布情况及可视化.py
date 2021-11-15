@@ -249,40 +249,41 @@ def medals_change_with_view(data):
 			)
 		)
 		# 仪表盘
-		gauge =(
-			Gauge()
-			.add("", [("\n\n\n\n比赛进度", int((i/15)*100))], radius="50%")
-		)
+		# gauge =(
+		# 	Gauge()
+		# 	.add("", [("\n\n\n\n比赛进度", int((i/15)*100))], radius="50%")
+		# )
 		# 布局
-		grid_chart = (
-			Grid()
-			.add(
-				bar, 
-				grid_opts=opts.GridOpts(
-					pos_left="35px", pos_right="60%", pos_top="10%",pos_bottom="1%"
-				),
-			)
-			.add(
-				gauge, 
-				grid_opts=opts.GridOpts(
-					pos_left="75%",pos_bottom="50%"
-				),
-			)
+		# grid_chart = (
+		# 	Grid()
+		# 	.add(
+		# 		bar, 
+		# 		grid_opts=opts.GridOpts(
+		# 			pos_left="35px", pos_right="60%", pos_top="10%",pos_bottom="1%"
+		# 		),
+		# 	)
+		# 	.add(
+		# 		gauge, 
+		# 		grid_opts=opts.GridOpts(
+		# 			pos_left="75%",pos_bottom="50%"
+		# 		),
+		# 	)
 
-		)
+		# )
 
-		tl.add_schema(
-			symbol='diamond',
-			is_auto_play=True,
-			orient="vertical",
-			# play_interval=5000, 
-			width="60",
-			pos_left="null",
-        	pos_right="10%",
-        	pos_top="20",
-        	pos_bottom="20"
-        )
-		tl.add(grid_chart, "{}".format(time_line[i]))
+		# tl.add_schema(
+		# 	symbol='diamond',
+		# 	is_auto_play=True,
+		# 	orient="vertical",
+		# 	# play_interval=5000, 
+		# 	width="60",
+		# 	pos_left="null",
+  #       	pos_right="10%",
+  #       	pos_top="20",
+  #       	pos_bottom="20"
+  #       )
+		tl.add_schema(symbol='diamond')
+		tl.add(bar, "{}".format(time_line[i]))
 		tl.render('东京奥运会奖牌榜.html')
 	return tl
 
