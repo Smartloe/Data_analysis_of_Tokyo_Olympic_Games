@@ -6,6 +6,9 @@ from pyecharts.commons.utils import JsCode
 from pyecharts.globals import ThemeType
 from pyecharts.components import Table, Image
 from pyecharts.faker import Faker
+import warnings
+# 忽略警告
+warnings.filterwarnings('ignore')
 
 # 主要国家美国,中国(略),日本,英国,俄罗斯奥运队
 # 维度时间,项目,类别（金,银,铜）
