@@ -24,10 +24,19 @@ def data_pre_processing():
 # 可视化part1：折线图
 def line_chart(data):
 	# 透视数据
-	df_p = data[0].pivot_table(index='日期',    # 透视的行，分组依据
+	df_p1 = data[0].pivot_table(index='日期',    # 透视的行，分组依据
 						  values='名次',    # 值
 						  aggfunc='sum'    # 聚合函数
 						 )
+	df_p2 = data[1].pivot_table(index='日期',    # 透视的行，分组依据
+						  values='名次',    # 值
+						  aggfunc='sum'    # 聚合函数
+						 )
+	df_p3 = data[2].pivot_table(index='日期',    # 透视的行，分组依据
+						  values='名次',    # 值
+						  aggfunc='sum'    # 聚合函数
+						 )
+	print(df_p3)
 
 
 
