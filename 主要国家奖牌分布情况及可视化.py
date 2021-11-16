@@ -89,28 +89,28 @@ def good_projects_view(data):
 		Pie(init_opts=opts.InitOpts(width="50%", height="410px"))
 		.add(
 				"",
-				[list(z) for z in zip([data[1][0][0], "其他"], [data[1][0][1], sum-data[1][0][1]])],
+				[list(z) for z in zip([data[1][0][0], "其他"], [((data[1][0][1])/sum)*100, ((sum-data[1][0][1])/sum)*100])],
 				center=["20%", "30%"],
 				radius=[60, 80],
 				label_opts=new_label_opts(),
 			)
 			.add(
 				"",
-				[list(z) for z in zip([data[1][1][0], "其他"], [data[1][1][1], sum-data[1][1][1]])],
+				[list(z) for z in zip([data[1][1][0], "其他"], [data[1][1][1]/sum*100, (sum-data[1][1][1])/sum*100])],
 				center=["55%", "30%"],
 				radius=[60, 80],
 				label_opts=new_label_opts(),
 			)
 			.add(
 				"",
-				[list(z) for z in zip([data[1][2][0], "其他"], [data[1][2][1], sum-data[1][2][1]])],
+				[list(z) for z in zip([data[1][2][0], "其他"], [data[1][2][1]/sum*100, (sum-data[1][2][1])/sum*100])],
 				center=["20%", "70%"],
 				radius=[60, 80],
 				label_opts=new_label_opts(),
 			)
 			.add(
 				"",
-				[list(z) for z in zip([data[1][3][0], "其他"], [data[1][3][1], sum-data[1][3][1]])],
+				[list(z) for z in zip([data[1][3][0], "其他"], [data[1][3][1]/sum*100, (sum-data[1][3][1])/sum*100])],
 				center=["55%", "70%"],
 				radius=[60, 80],
 				label_opts=new_label_opts(),
@@ -296,5 +296,4 @@ if __name__ == "__main__":
 	page = good_projects_view(good_projects(data))
 	medals_data = medals_change_with_time()
 	tl = medals_change_with_view(medals_data)
-
-			
+		
