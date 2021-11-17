@@ -28,6 +28,10 @@ def line_chart(data):
 						  values='名次',    # 值
 						  aggfunc='count'    # 聚合函数
 						 )
+	df_p1 = df_p1.columns.droplevel(0) #remove amount
+	df_p1.columns.name = None               #remove categories
+	df_p1 = df_p1.reset_index()                #index to columns
+	print(df_p1)
 	df_p2 = data[1].pivot_table(index='日期',    # 透视的行，分组依据
 						  values='名次',    # 值
 						  aggfunc='count'    # 聚合函数
