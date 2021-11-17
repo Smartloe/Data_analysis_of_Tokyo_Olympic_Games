@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 # 数据读取
 def to_read_data():
 	medal_list = ['golds','silvers', 'bronzes ']
@@ -24,25 +24,22 @@ def data_pre_processing():
 # 可视化part1：折线图
 def line_chart(data):
 	# 透视数据
-	df_p1 = data[0].pivot_table(index='日期',    # 透视的行，分组依据
-						  values='名次',    # 值
-						  aggfunc='count'    # 聚合函数
+	df_p1 = data[0].pivot_table(index='日期',    
+						values='名次',	
+						aggfunc='count'	
 						 )
-	df_p1 = df_p1.columns.droplevel(0) #remove amount
-	df_p1.columns.name = None               #remove categories
-	df_p1 = df_p1.reset_index()                #index to columns
-	print(df_p1)
-	df_p2 = data[1].pivot_table(index='日期',    # 透视的行，分组依据
-						  values='名次',    # 值
-						  aggfunc='count'    # 聚合函数
+	df_p2 = data[1].pivot_table(index='日期',    
+						  values='名次',    
+						  aggfunc='count'    
 						 )
-	df_p3 = data[2].pivot_table(index='日期',    # 透视的行，分组依据
-						  values='名次',    # 值
-						  aggfunc='count'    # 聚合函数
+	df_p3 = data[2].pivot_table(index='日期',    
+						  values='名次',    
+						  aggfunc='count'    
 						 )
 	medals_num = pd.merge(pd.merge(df_p1, df_p2, how="outer", on="日期"),df_p3,how="outer", on="日期")
-	medals_num = pd.DataFrame(medals_num.fillna(0))
-	print(medals_num)
+	medals_num.fillna(0, inplace=True)
+	print(medals_num.index[0])
+	print(np.array(medals_num))
 
 
 if __name__ == "__main__":
