@@ -57,7 +57,7 @@ def line_chart(data):
 			label_opts=opts.LabelOpts(is_show=False),
 		)
 		.set_global_opts(
-			title_opts=opts.TitleOpts(title="我国每天获得的奖牌数",subtitle="单位：枚"),
+			title_opts=opts.TitleOpts(subtitle="单位：枚"),
 			brush_opts=opts.BrushOpts(),
 		)
 	)
@@ -87,7 +87,6 @@ def line_chart(data):
 			label_opts=opts.LabelOpts(is_show=False),
 		)
 		.set_global_opts(
-			title_opts=opts.TitleOpts(title="Line-面积图（紧贴 Y 轴）"),
 			xaxis_opts=opts.AxisOpts(
 				axistick_opts=opts.AxisTickOpts(is_align_with_label=True),
 				is_scale=False,
@@ -96,10 +95,10 @@ def line_chart(data):
 		)
 	)
 	grid = (
-		Grid(init_opts=opts.InitOpts(width="100%", height="800px"))
-		.add(bar, grid_opts=opts.GridOpts(pos_right="50%"))
-		.add(line, grid_opts=opts.GridOpts(pos_left="50%"))
-		.render("grid_overlap_multi_xy_axis.html")
+		Grid(init_opts=opts.InitOpts(width="100%",height="750px",page_title="我国奖牌随时间分布情况"))
+		.add(bar, grid_opts=opts.GridOpts(pos_right="60%",pos_left="1%"))
+		.add(line, grid_opts=opts.GridOpts(pos_left="50%",pos_right="0.5%"))
+		.render("我国奖牌随时间分布情况.html")
 	)
 
 if __name__ == "__main__":
