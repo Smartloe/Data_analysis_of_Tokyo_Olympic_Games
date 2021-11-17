@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import pyecharts.options as opts
+from pyecharts.charts import Line, Bar, Grid
 # 数据读取
 def to_read_data():
 	medal_list = ['golds','silvers', 'bronzes ']
@@ -38,9 +40,67 @@ def line_chart(data):
 						 )
 	medals_num = pd.merge(pd.merge(df_p1, df_p2, how="outer", on="日期"),df_p3,how="outer", on="日期")
 	medals_num.fillna(0, inplace=True)
-	print(medals_num.index[0])
-	print(np.array(medals_num))
+	medals_num.sort_values(by='日期',ascending=True, inplace=True)# 排序
+	date = []
+	for i in range(0,16):
+		date.append((medals_num.index.astype(str))[i])
+	gold_medal, silver_medal, bronze_medal = medals_num['名次_x'].to_list(), medals_num['名次_y'].to_list(), medals_num['名次'].to_list()
+	
+	# 柱形图
+	bar = (
+		Bar()
+		.add_xaxis(date)
+		.add_yaxis("金牌", gold_medal, stack="stack1", color="#CD7F32")
+		.add_yaxis("银牌", silver_medal, stack="stack1", color="#C0C0C0")
+		.add_yaxis("铜牌", bronze_medal, stack="stack1", color="#FFD700")
+		.set_series_opts(
+			label_opts=opts.LabelOpts(is_show=False),
+		)
+		.set_global_opts(
+			title_opts=opts.TitleOpts(title="我国每天获得的奖牌数",subtitle="单位：枚"),
+			brush_opts=opts.BrushOpts(),
+		)
+	)
 
+	gold_medals, silver_medals, bronze_medals = [], [], []
+	n1, n2, n3 = 0, 0, 0
+	for j in range(0,16):
+		# 金
+		n1 += gold_medal[j]
+		gold_medals.append(n1)
+		# 银
+		n2 += silver_medal[j]
+		silver_medals.append(n2)
+		# 铜
+		n3 += bronze_medal[j]
+		bronze_medals.append(n3)
+
+	# 折线图
+	line = (
+		Line()
+		.add_xaxis(date)
+		.add_yaxis("金牌", gold_medals, is_smooth=True, color="#CD7F32")
+		.add_yaxis("银牌", silver_medals, is_smooth=True, color="#C0C0C0")
+		.add_yaxis("铜牌", bronze_medals, is_smooth=True, color="#FFD700")
+		.set_series_opts(
+			areastyle_opts=opts.AreaStyleOpts(opacity=0.5),
+			label_opts=opts.LabelOpts(is_show=False),
+		)
+		.set_global_opts(
+			title_opts=opts.TitleOpts(title="Line-面积图（紧贴 Y 轴）"),
+			xaxis_opts=opts.AxisOpts(
+				axistick_opts=opts.AxisTickOpts(is_align_with_label=True),
+				is_scale=False,
+				boundary_gap=False,
+			),
+		)
+	)
+	grid = (
+		Grid(init_opts=opts.InitOpts(width="100%", height="800px"))
+		.add(bar, grid_opts=opts.GridOpts(pos_right="50%"))
+		.add(line, grid_opts=opts.GridOpts(pos_left="50%"))
+		.render("grid_overlap_multi_xy_axis.html")
+	)
 
 if __name__ == "__main__":
 	line_chart(data_pre_processing())
