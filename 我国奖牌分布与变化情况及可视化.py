@@ -37,8 +37,9 @@ def line_chart(data):
 						  aggfunc='count'    # 聚合函数
 						 )
 	medals_num = pd.merge(pd.merge(df_p1, df_p2, how="outer", on="日期"),df_p3,how="outer", on="日期")
-	medals_num = medals_num.fillna(0)
+	medals_num = pd.DataFrame(medals_num.fillna(0))
 	print(medals_num)
+
 
 if __name__ == "__main__":
 	line_chart(data_pre_processing())
