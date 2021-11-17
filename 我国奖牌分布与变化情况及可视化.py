@@ -23,8 +23,8 @@ def data_pre_processing():
 	return medals_data
 
 
-# 可视化part1：折线图
-def line_chart(data):
+# 可视化part1
+def chart_part1(data):
 	# 透视数据
 	df_p1 = data[0].pivot_table(index='日期',    
 						values='名次',	
@@ -101,5 +101,9 @@ def line_chart(data):
 		.render("我国奖牌随时间分布情况.html")
 	)
 
+# 可视化part2
+def chart_part1():
+	pass
+
 if __name__ == "__main__":
-	line_chart(data_pre_processing())
+	chart_part1(data_pre_processing())
