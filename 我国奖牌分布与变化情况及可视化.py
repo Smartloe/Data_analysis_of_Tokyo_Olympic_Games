@@ -28,7 +28,6 @@ def line_chart(data):
 						  values='名次',    # 值
 						  aggfunc='count'    # 聚合函数
 						 )
-	df_p1 = pd.DataFrame(df_p1)
 	df_p2 = data[1].pivot_table(index='日期',    # 透视的行，分组依据
 						  values='名次',    # 值
 						  aggfunc='count'    # 聚合函数
@@ -37,9 +36,9 @@ def line_chart(data):
 						  values='名次',    # 值
 						  aggfunc='count'    # 聚合函数
 						 )
-	print(df_p1[:0])
-
-
+	medals_num = pd.merge(pd.merge(df_p1, df_p2, how="outer", on="日期"),df_p3,how="outer", on="日期")
+	medals_num = medals_num.fillna(0)
+	print(medals_num)
 
 if __name__ == "__main__":
 	line_chart(data_pre_processing())
