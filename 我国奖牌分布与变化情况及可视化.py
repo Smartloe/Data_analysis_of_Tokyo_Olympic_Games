@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import jieba
 import pyecharts.options as opts
-from pyecharts.charts import Line, Bar, Grid, Funnel
-from pyecharts.faker import Faker
+from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar
 
 olympic_sports = ["田径", "赛艇", "跆拳道", "自行车", "帆船", "皮划艇", "射剑", "射击", "游泳", "铁人三项", "现代五项", "拳击 ", "击剑 ", "柔道", "摔跤",
 				  "举重", "体操", "乒乓球 ", "羽毛球", "排球", "篮球", "足球 ", "棒球", "垒球", "曲棍球", "手球", "网球", "马术","滑板","冲浪","竞技攀岩",
@@ -23,6 +22,7 @@ FILTER_WORDS = ['男子', '10', '跳台', '静水', '女子', '500', '双人', '
 				 '女子', '自由式', '76', '公斤', '男子', '古典式', '60', '公斤', '男子', '25', '手枪', '速射', '男子', '男子', '帆板',
 				 'RS', '女子', '25', '手枪', '女子', '八人', '单桨', '舵手', '三人', '女子组', '男子', '双人', '双桨', '男子', '团体', '女子', '双向', 
 				 '飞碟', '女子', '400',  '男子', '68', '公斤', '男子', '10', '气步枪', '女子', '10', '气手枪', '男子', '10', '气手枪']
+
 # 数据读取
 def to_read_data():
 	medal_list = ['golds','silvers', 'bronzes ']
@@ -145,14 +145,14 @@ def chart_two(data):
 	keywords_counts = keywords_counts.value_counts()#筛选完才能做value_counts
 	result_data = zip(keywords_counts.index.to_list(),keywords_counts.to_list())
 	c = (
-		Funnel()
+		Funnel(init_opts=opts.InitOpts(width="100%",height="800px", page_title="我国奖牌分布情况"))
 		.add(
-			"商品",
+			"项目",
 			list(result_data),
-			sort_="ascending",
+			# sort_="ascending",
 			label_opts=opts.LabelOpts(position="inside"),
 		)
-		.set_global_opts(title_opts=opts.TitleOpts(title="Funnel-Sort（ascending）"))
+		# .set_global_opts(title_opts=opts.TitleOpts(title="Funnel-Sort（ascending）"))
 		.render("funnel_sort_ascending.html")
 	)
 	# print([list(z) for z in zip(Faker.choose(), Faker.values())])
