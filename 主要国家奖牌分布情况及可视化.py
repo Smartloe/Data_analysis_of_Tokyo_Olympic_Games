@@ -72,7 +72,6 @@ def good_projects_view(data):
 			"",
 			data[0],
 			radius=["40%", "75%"],
-
 		)
 		.set_global_opts(
 			title_opts=opts.TitleOpts(title="USA"),
