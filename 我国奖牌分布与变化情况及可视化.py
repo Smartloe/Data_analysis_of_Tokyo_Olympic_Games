@@ -176,14 +176,14 @@ def chart_two(data):
 		                "color": JsCode(
 		                    """new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 		                offset: 0,
-		                color: 'rgba(0, 244, 255, 1)'
+		                color: 'rgba(255, 0, 51, 0.7)'
 		            }, {
 		                offset: 1,
-		                color: 'rgba(0, 77, 167, 1)'
+		                color: 'rgba(243, 77, 0, 0.3)'
 		            }], false)"""
 		                ),
 		                "barBorderRadius": [30, 30, 30, 30],
-		                "shadowColor": "rgb(0, 160, 221)",
+		                "shadowColor": "rgba(255, 0, 51, 0.7)",
 		            }
 		        }
 		    )
