@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import jieba
 import pyecharts.options as opts
+from pyecharts.commons.utils import JsCode
+from pyecharts.globals import ThemeType
 from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar
 
 olympic_sports = ["田径", "赛艇", "跆拳道", "自行车", "帆船", "皮划艇", "射剑", "射击", "游泳", "铁人三项", "现代五项", "拳击 ", "击剑 ", "柔道", "摔跤",
@@ -22,6 +24,17 @@ FILTER_WORDS = ['男子', '10', '跳台', '静水', '女子', '500', '双人', '
 				 '女子', '自由式', '76', '公斤', '男子', '古典式', '60', '公斤', '男子', '25', '手枪', '速射', '男子', '男子', '帆板',
 				 'RS', '女子', '25', '手枪', '女子', '八人', '单桨', '舵手', '三人', '女子组', '男子', '双人', '双桨', '男子', '团体', '女子', '双向', 
 				 '飞碟', '女子', '400',  '男子', '68', '公斤', '男子', '10', '气步枪', '女子', '10', '气手枪', '男子', '10', '气手枪']
+color_function = """
+        function (params) {
+            if (params.value > 0 && params.value < 3) {
+                return 'red';
+            } else if (params.value > 2 && params.value < 100) {
+                return 'blue';
+            }
+            return 'green';
+        }
+        """
+
 
 # 数据读取
 def to_read_data():
@@ -147,9 +160,9 @@ def chart_two(data):
 	values = keywords_counts.to_list()[::-1]
 	result_data = zip(keywords_counts.index.to_list(),keywords_counts.to_list())
 	bar = (
-			Bar(init_opts=opts.InitOpts(width="100%",height="780px", page_title="我国奖牌分布情况"))
+			Bar(init_opts=opts.InitOpts(width="100%",height="750px", page_title="我国奖牌分布情况", theme=ThemeType.ESSOS))
 			.add_xaxis(sports)
-			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"),  itemstyle_opts=opts.ItemStyleOpts(color='#e6b422'),)
+			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"),  )
 			.reversal_axis()
 			.render('kk.html')
 		)
