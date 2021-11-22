@@ -146,15 +146,11 @@ def chart_two(data):
 	sports = (keywords_counts.index.to_list())[::-1]
 	values = keywords_counts.to_list()[::-1]
 	result_data = zip(keywords_counts.index.to_list(),keywords_counts.to_list())
-	print(result_data)
 	bar = (
-			Bar(init_opts=opts.InitOpts(width="100%",height="800px", page_title="我国奖牌分布情况"))
+			Bar(init_opts=opts.InitOpts(width="100%",height="780px", page_title="我国奖牌分布情况"))
 			.add_xaxis(sports)
-			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"))
+			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"),  itemstyle_opts=opts.ItemStyleOpts(color='#e6b422'),)
 			.reversal_axis()
-			.set_global_opts(
-				datazoom_opts=opts.DataZoomOpts(),
-			)
 			.render('kk.html')
 		)
 	# c = (
