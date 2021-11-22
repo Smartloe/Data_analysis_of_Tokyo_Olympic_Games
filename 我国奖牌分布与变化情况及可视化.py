@@ -25,15 +25,15 @@ FILTER_WORDS = ['男子', '10', '跳台', '静水', '女子', '500', '双人', '
 				 'RS', '女子', '25', '手枪', '女子', '八人', '单桨', '舵手', '三人', '女子组', '男子', '双人', '双桨', '男子', '团体', '女子', '双向', 
 				 '飞碟', '女子', '400',  '男子', '68', '公斤', '男子', '10', '气步枪', '女子', '10', '气手枪', '男子', '10', '气手枪']
 color_function = """
-        function (params) {
-            if (params.value > 0 && params.value < 3) {
-                return 'red';
-            } else if (params.value > 2 && params.value < 100) {
-                return 'blue';
-            }
-            return 'green';
-        }
-        """
+		function (params) {
+			if (params.value > 0 && params.value < 3) {
+				return 'red';
+			} else if (params.value > 2 && params.value < 100) {
+				return 'blue';
+			}
+			return 'green';
+		}
+		"""
 
 
 # 数据读取
@@ -163,14 +163,37 @@ def chart_two(data):
 			Bar(init_opts=opts.InitOpts(
 										width="100%",height="750px",
 										page_title="我国奖牌分布情况", 
-										theme=ThemeType.ESSOS
-									)
+										# theme=ThemeType.ESSOS,
+										bg_color={"type": "pattern", "image": JsCode("img"), "repeat": "no-repeat"}
+									),				
 			)
 			.add_xaxis(sports)
-			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"),  )
+			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"), category_gap="60%")
 			.reversal_axis()
-			.render('kk.html')
+		    .set_series_opts(
+		        itemstyle_opts={
+		            "normal": {
+		                "color": JsCode(
+		                    """new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+		                offset: 0,
+		                color: 'rgba(0, 244, 255, 1)'
+		            }, {
+		                offset: 1,
+		                color: 'rgba(0, 77, 167, 1)'
+		            }], false)"""
+		                ),
+		                "barBorderRadius": [30, 30, 30, 30],
+		                "shadowColor": "rgb(0, 160, 221)",
+		            }
+		        }
+		    )
 		)
+	bar.add_js_funcs(
+		"""
+		var img = new Image(); img.src = '运动图标/bg_img1.png';
+		"""
+	)
+	bar.render('kk.html')
 	# c = (
 	# 	Funnel(init_opts=opts.InitOpts(width="100%",height="800px", page_title="我国奖牌分布情况"))
 	# 	.add(
