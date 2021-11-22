@@ -183,7 +183,7 @@ def chart_two(data):
 		            }], false)"""
 		                ),
 		                "barBorderRadius": [30, 30, 30, 30],
-		                "shadowColor": "rgba(255, 0, 51, 0.7)",
+		                "shadowColor": "rgba(255, 255, 0, 1)",
 		            }
 		        }
 		    )
@@ -193,7 +193,7 @@ def chart_two(data):
 		var img = new Image(); img.src = '运动图标/bg_img1.png';
 		"""
 	)
-	bar.render('kk.html')
+	bar.render('我国奖牌分布情况.html')
 	# c = (
 	# 	Funnel(init_opts=opts.InitOpts(width="100%",height="800px", page_title="我国奖牌分布情况"))
 	# 	.add(
