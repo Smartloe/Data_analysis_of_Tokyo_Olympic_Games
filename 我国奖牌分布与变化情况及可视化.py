@@ -160,7 +160,12 @@ def chart_two(data):
 	values = keywords_counts.to_list()[::-1]
 	result_data = zip(keywords_counts.index.to_list(),keywords_counts.to_list())
 	bar = (
-			Bar(init_opts=opts.InitOpts(width="100%",height="750px", page_title="我国奖牌分布情况", theme=ThemeType.ESSOS))
+			Bar(init_opts=opts.InitOpts(
+										width="100%",height="750px",
+										page_title="我国奖牌分布情况", 
+										theme=ThemeType.ESSOS
+									)
+			)
 			.add_xaxis(sports)
 			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"),  )
 			.reversal_axis()
