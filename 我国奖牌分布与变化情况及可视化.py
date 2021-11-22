@@ -194,6 +194,7 @@ def chart_two(data):
 		"""
 	)
 	bar.render('我国奖牌分布情况.html')
+	return None
 	# c = (
 	# 	Funnel(init_opts=opts.InitOpts(width="100%",height="800px", page_title="我国奖牌分布情况"))
 	# 	.add(
