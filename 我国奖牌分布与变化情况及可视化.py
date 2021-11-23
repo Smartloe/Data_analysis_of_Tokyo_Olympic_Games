@@ -4,7 +4,7 @@ import jieba
 import pyecharts.options as opts
 from pyecharts.commons.utils import JsCode
 from pyecharts.globals import ThemeType
-from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar
+from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar,Pie
 
 olympic_sports = ["田径", "赛艇", "跆拳道", "自行车", "帆船", "皮划艇", "射剑", "射击", "游泳", "铁人三项", "现代五项", "拳击 ", "击剑 ", "柔道", "摔跤",
 				  "举重", "体操", "乒乓球 ", "羽毛球", "排球", "篮球", "足球 ", "棒球", "垒球", "曲棍球", "手球", "网球", "马术","滑板","冲浪","竞技攀岩",
@@ -244,7 +244,7 @@ def chart_two(data):
 	# 	)
 	# 	.reversal_axis()
 	# 	.set_global_opts(
-	# 		title_opts=opts.TitleOpts(title="PictorialBar-Vehicles in X City"),
+	# 		title_opts=opts.TitleOpts(title="PictorialBar-Vehicles in X City")
 	# 		xaxis_opts=opts.AxisOpts(is_show=False),
 	# 		yaxis_opts=opts.AxisOpts(
 	# 			axistick_opts=opts.AxisTickOpts(is_show=False),
@@ -256,10 +256,17 @@ def chart_two(data):
 	# 	.render("pictorialbar_multi_custom_symbols.html")
 	# )
 
+def chart_three(data):
+	golds_num = sum(data[0]['名次'])
+	silvers_num = sum(data[1]['名次'])/2
+	bronzes_num =sum(data[2]['名次'])/3
+	print(golds_num, silvers_num, bronzes_num)
+
+
 
 if __name__ == "__main__":
 	medals_data = data_pre_processing()
 	chart_one(medals_data)
 	chart_two(medals_data)
-
+	chart_three(medals_data)
 
