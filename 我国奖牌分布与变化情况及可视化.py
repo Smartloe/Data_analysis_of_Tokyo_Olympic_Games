@@ -256,6 +256,8 @@ def chart_two(data):
 	# 	.render("pictorialbar_multi_custom_symbols.html")
 	# )
 
+
+# 可视化part3
 def chart_three(data):
 	golds_num = sum(data[0]['名次'])
 	silvers_num = sum(data[1]['名次'])/2
@@ -272,9 +274,9 @@ def chart_three(data):
 			label_opts=opts.LabelOpts(is_show=False),
 		)
 		.set_global_opts(title_opts=opts.TitleOpts(title="金、银、铜牌占比——中国队"))
-		.render("pie_rosetype.html")
+		.render("中国队金、银、铜牌占比.html")
 	)
-
+	return pie
 
 
 if __name__ == "__main__":
