@@ -170,23 +170,23 @@ def chart_two(data):
 			.add_xaxis(sports)
 			.add_yaxis("中国队", values, label_opts=opts.LabelOpts(position="right"), category_gap="60%")
 			.reversal_axis()
-		    .set_series_opts(
-		        itemstyle_opts={
-		            "normal": {
-		                "color": JsCode(
-		                    """new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-		                offset: 0,
-		                color: 'rgba(255, 0, 51, 0.7)'
-		            }, {
-		                offset: 1,
-		                color: 'rgba(243, 77, 0, 0.3)'
-		            }], false)"""
-		                ),
-		                "barBorderRadius": [30, 30, 30, 30],
-		                "shadowColor": "rgba(255, 255, 0, 1)",
-		            }
-		        }
-		    )
+			.set_series_opts(
+				itemstyle_opts={
+					"normal": {
+						"color": JsCode(
+							"""new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+						offset: 0,
+						color: 'rgba(255, 0, 51, 0.7)'
+					}, {
+						offset: 1,
+						color: 'rgba(243, 77, 0, 0.3)'
+					}], false)"""
+						),
+						"barBorderRadius": [30, 30, 30, 30],
+						"shadowColor": "rgba(255, 255, 0, 1)",
+					}
+				}
+			)
 		)
 	bar.add_js_funcs(
 		"""
@@ -260,7 +260,20 @@ def chart_three(data):
 	golds_num = sum(data[0]['名次'])
 	silvers_num = sum(data[1]['名次'])/2
 	bronzes_num =sum(data[2]['名次'])/3
-	print(golds_num, silvers_num, bronzes_num)
+	data = [('金牌',golds_num), ('银牌',silvers_num), ('铜牌',bronzes_num)]
+	pie = (
+		Pie()
+		.add(
+			"",
+			data,
+			radius=["30%", "75%"],
+			center=["75%", "50%"],
+			rosetype="area",
+			label_opts=opts.LabelOpts(is_show=False),
+		)
+		.set_global_opts(title_opts=opts.TitleOpts(title="金、银、铜牌占比——中国队"))
+		.render("pie_rosetype.html")
+	)
 
 
 
