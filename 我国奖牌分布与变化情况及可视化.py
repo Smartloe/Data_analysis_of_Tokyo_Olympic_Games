@@ -4,7 +4,7 @@ import jieba
 import pyecharts.options as opts
 from pyecharts.commons.utils import JsCode
 from pyecharts.globals import ThemeType
-from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar,Pie
+from pyecharts.charts import Line, Bar, Grid, Funnel, PictorialBar, Pie
 
 olympic_sports = ["田径", "赛艇", "跆拳道", "自行车", "帆船", "皮划艇", "射剑", "射击", "游泳", "铁人三项", "现代五项", "拳击 ", "击剑 ", "柔道", "摔跤",
 				  "举重", "体操", "乒乓球 ", "羽毛球", "排球", "篮球", "足球 ", "棒球", "垒球", "曲棍球", "手球", "网球", "马术","滑板","冲浪","竞技攀岩",
@@ -264,7 +264,7 @@ def chart_three(data):
 	bronzes_num =sum(data[2]['名次'])/3
 	data = [('金牌',golds_num), ('银牌',silvers_num), ('铜牌',bronzes_num)]
 	pie = (
-		Pie()
+		Pie(init_opts=opts.InitOpts(width="100%",height="750px",page_title="中国队金、银、铜牌占比"))
 		.add(
 			"",
 			data,
@@ -273,7 +273,7 @@ def chart_three(data):
 			rosetype="area",
 			label_opts=opts.LabelOpts(is_show=False),
 		)
-		.set_global_opts(title_opts=opts.TitleOpts(title="金、银、铜牌占比——中国队"))
+		.set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
 		.render("中国队金、银、铜牌占比.html")
 	)
 	return pie

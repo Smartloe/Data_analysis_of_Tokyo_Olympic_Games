@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
+    <title>中国队金、银、铜牌占比</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 
 </head>
 <body>
-    <div id="1e3e7deb4a3f43efbb239fd8ba28ff7c" class="chart-container" style="width:900px; height:500px;"></div>
+    <div id="2b4ed32eb81f4bfcbb36bd10e703db4b" class="chart-container" style="width:100%; height:750px;"></div>
     <script>
-        var chart_1e3e7deb4a3f43efbb239fd8ba28ff7c = echarts.init(
-            document.getElementById('1e3e7deb4a3f43efbb239fd8ba28ff7c'), 'white', {renderer: 'canvas'});
-        var option_1e3e7deb4a3f43efbb239fd8ba28ff7c = {
+        var chart_2b4ed32eb81f4bfcbb36bd10e703db4b = echarts.init(
+            document.getElementById('2b4ed32eb81f4bfcbb36bd10e703db4b'), 'white', {renderer: 'canvas'});
+        var option_2b4ed32eb81f4bfcbb36bd10e703db4b = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -74,9 +74,16 @@
             ],
             "roseType": "area",
             "label": {
-                "show": false,
+                "show": true,
                 "position": "top",
-                "margin": 8
+                "margin": 8,
+                "formatter": "{b}: {c}"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
             }
         }
     ],
@@ -87,12 +94,7 @@
                 "\u94f6\u724c",
                 "\u94dc\u724c"
             ],
-            "selected": {},
-            "show": true,
-            "padding": 5,
-            "itemGap": 10,
-            "itemWidth": 25,
-            "itemHeight": 14
+            "selected": {}
         }
     ],
     "tooltip": {
@@ -111,16 +113,12 @@
         },
         "borderWidth": 0,
         "padding": 5
-    },
-    "title": [
-        {
-            "text": "\u91d1\u3001\u94f6\u3001\u94dc\u724c\u5360\u6bd4\u2014\u2014\u4e2d\u56fd\u961f",
-            "padding": 5,
-            "itemGap": 10
-        }
-    ]
+    }
 };
-        chart_1e3e7deb4a3f43efbb239fd8ba28ff7c.setOption(option_1e3e7deb4a3f43efbb239fd8ba28ff7c);
+        chart_2b4ed32eb81f4bfcbb36bd10e703db4b.setOption(option_2b4ed32eb81f4bfcbb36bd10e703db4b);
+            window.addEventListener('resize', function(){
+                chart_2b4ed32eb81f4bfcbb36bd10e703db4b.resize();
+            })
     </script>
 </body>
 </html>
