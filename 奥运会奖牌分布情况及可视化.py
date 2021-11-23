@@ -34,7 +34,7 @@ def Medals_distribution_map(data):
 	for j in countries_and_nums.values():
 		medal_num.append(j)
 	list_countries_nums = [countries_en, medal_num]
-
+	# print([list(z) for z in zip(list_countries_nums[0], list_countries_nums[1])])
 	map_world = (
 		Map(init_opts=opts.InitOpts(theme="vintage", chart_id=1))
 			.add("", [list(z) for z in zip(list_countries_nums[0], list_countries_nums[1])], "world",
