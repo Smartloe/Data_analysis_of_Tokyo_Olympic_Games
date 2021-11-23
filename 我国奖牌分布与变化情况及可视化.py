@@ -268,8 +268,8 @@ def chart_three(data):
 									width="100%",
 									height="750px",
 									page_title="中国队金、银、铜牌占比",
+									bg_color={"type": "pattern", "image": JsCode("img"), "repeat": "no-repeat"},
 									theme=ThemeType.INFOGRAPHIC,
-									bg_color={"type": "pattern", "image": JsCode("img"), "repeat": "no-repeat"}
 								)
 			)
 		.add(

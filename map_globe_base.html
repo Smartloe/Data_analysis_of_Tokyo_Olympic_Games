@@ -10,12 +10,12 @@
 
 </head>
 <body>
-    <div id="67be436ddcaf411c945a02523d3221e6" style="width:100%; height:750px;"></div>
+    <div id="d6831ee9effa4530ad41760700776277" style="width:100%; height:750px;"></div>
     <script>
-		var canvas_67be436ddcaf411c945a02523d3221e6 = document.createElement('canvas');
-        var mapChart_67be436ddcaf411c945a02523d3221e6 = echarts.init(
-		     canvas_67be436ddcaf411c945a02523d3221e6, 'white', {width: 4096, height: 2048, renderer: 'canvas'});
-        var mapOption_67be436ddcaf411c945a02523d3221e6 = {
+		var canvas_d6831ee9effa4530ad41760700776277 = document.createElement('canvas');
+        var mapChart_d6831ee9effa4530ad41760700776277 = echarts.init(
+		     canvas_d6831ee9effa4530ad41760700776277, 'white', {width: 4096, height: 2048, renderer: 'canvas'});
+        var mapOption_d6831ee9effa4530ad41760700776277 = {
     "backgroundColor": "#2ca9e1",
     "animation": true,
     "animationThreshold": 2000,
@@ -487,9 +487,10 @@
         ],
         "inRange": {
             "color": [
-                "pink",
+                "#aacf53",
                 "lightskyblue",
-                "yellow",
+                "#ffec47",
+                "#f08300",
                 "orangered"
             ]
         },
@@ -509,14 +510,14 @@
         }
     ]
 };
-        mapChart_67be436ddcaf411c945a02523d3221e6.setOption(mapOption_67be436ddcaf411c945a02523d3221e6);
+        mapChart_d6831ee9effa4530ad41760700776277.setOption(mapOption_d6831ee9effa4530ad41760700776277);
 
-		var chart_67be436ddcaf411c945a02523d3221e6 = echarts.init(
-        document.getElementById('67be436ddcaf411c945a02523d3221e6'), 'white', {renderer: 'canvas'});
-		var options_67be436ddcaf411c945a02523d3221e6 = {
+		var chart_d6831ee9effa4530ad41760700776277 = echarts.init(
+        document.getElementById('d6831ee9effa4530ad41760700776277'), 'white', {renderer: 'canvas'});
+		var options_d6831ee9effa4530ad41760700776277 = {
            "globe": {
            "show": true,
-		   "baseTexture": mapChart_67be436ddcaf411c945a02523d3221e6,
+		   "baseTexture": mapChart_d6831ee9effa4530ad41760700776277,
            shading: 'lambert',
             light: {
                 ambient: {
@@ -528,7 +529,7 @@
              }
 
 		   }};
-		chart_67be436ddcaf411c945a02523d3221e6.setOption(options_67be436ddcaf411c945a02523d3221e6);
+		chart_d6831ee9effa4530ad41760700776277.setOption(options_d6831ee9effa4530ad41760700776277);
     </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ c = (
 			max_=high,
 			range_text=["max", "min"],
 			is_calculable=True,
-			range_color=["pink", "lightskyblue", "yellow", "orangered"],
+			range_color=["#aacf53", "lightskyblue","#ffec47", "#f08300", "orangered"],
 		),
 		# tooltip_opts=opts.TooltipOpts(is_show=True, trigger_on='mousemove|click', background_color='whilte')
 	)
