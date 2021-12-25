@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <div id="643efc5eac7141c3bf299da3c726e76a" class="chart-container" style="width:100%; height:750px;"></div>
+    <div id="1a6d65d4a08a48ecadb62b74c499953e" class="chart-container" style="width:100%; height:750px;"></div>
     <script>
-        var chart_643efc5eac7141c3bf299da3c726e76a = echarts.init(
-            document.getElementById('643efc5eac7141c3bf299da3c726e76a'), 'white', {renderer: 'canvas'});
-        var option_643efc5eac7141c3bf299da3c726e76a = {
+        var chart_1a6d65d4a08a48ecadb62b74c499953e = echarts.init(
+            document.getElementById('1a6d65d4a08a48ecadb62b74c499953e'), 'white', {renderer: 'canvas'});
+        var option_1a6d65d4a08a48ecadb62b74c499953e = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -49,88 +49,15 @@
     "series": [
         {
             "type": "radar",
-            "name": "USA",
+            "name": "ROC",
             "data": [
                 {
                     "value": [
-                        39,
-                        41,
-                        33
+                        20,
+                        28,
+                        23
                     ],
-                    "name": "\u7f8e\u56fd"
-                }
-            ],
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
-            },
-            "itemStyle": {
-                "normal": {
-                    "color": "#003049"
-                }
-            },
-            "lineStyle": {
-                "show": true,
-                "width": 2,
-                "opacity": 1,
-                "curveness": 0,
-                "type": "solid"
-            },
-            "areaStyle": {
-                "opacity": 0.1
-            }
-        },
-        {
-            "type": "radar",
-            "name": "CHN",
-            "data": [
-                {
-                    "value": [
-                        38,
-                        32,
-                        18
-                    ],
-                    "name": "\u4e2d\u56fd",
-                    "symbol": "rect",
-                    "symbolSize": 12,
-                    "lineStyle": {
-                        "type": "dashed"
-                    }
-                }
-            ],
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
-            },
-            "itemStyle": {
-                "normal": {
-                    "color": "red"
-                }
-            },
-            "lineStyle": {
-                "show": true,
-                "width": 5,
-                "opacity": 1,
-                "curveness": 0,
-                "type": "solid"
-            },
-            "areaStyle": {
-                "opacity": 0.3
-            }
-        },
-        {
-            "type": "radar",
-            "name": "JPN",
-            "data": [
-                {
-                    "value": [
-                        27,
-                        14,
-                        17
-                    ],
-                    "name": "\u65e5\u672c"
+                    "name": "\u4fc4\u7f57\u65af\u5965\u8fd0\u961f"
                 }
             ],
             "label": {
@@ -190,15 +117,15 @@
         },
         {
             "type": "radar",
-            "name": "ROC",
+            "name": "JPN",
             "data": [
                 {
                     "value": [
-                        20,
-                        28,
-                        23
+                        27,
+                        14,
+                        17
                     ],
-                    "name": "\u4fc4\u7f57\u65af\u5965\u8fd0\u961f"
+                    "name": "\u65e5\u672c"
                 }
             ],
             "label": {
@@ -221,23 +148,96 @@
             "areaStyle": {
                 "opacity": 0.1
             }
+        },
+        {
+            "type": "radar",
+            "name": "CHN",
+            "data": [
+                {
+                    "value": [
+                        38,
+                        32,
+                        18
+                    ],
+                    "name": "\u4e2d\u56fd",
+                    "symbol": "rect",
+                    "symbolSize": 12,
+                    "lineStyle": {
+                        "type": "dashed"
+                    }
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "red"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 5,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.3
+            }
+        },
+        {
+            "type": "radar",
+            "name": "USA",
+            "data": [
+                {
+                    "value": [
+                        39,
+                        41,
+                        33
+                    ],
+                    "name": "\u7f8e\u56fd"
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#003049"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.1
+            }
         }
     ],
     "legend": [
         {
             "data": [
-                "USA",
-                "CHN",
-                "JPN",
+                "ROC",
                 "GBR",
-                "ROC"
+                "JPN",
+                "CHN",
+                "USA"
             ],
             "selected": {
-                "USA": true,
-                "CHN": true,
-                "JPN": true,
+                "ROC": true,
                 "GBR": true,
-                "ROC": true
+                "JPN": true,
+                "CHN": true,
+                "USA": true
             }
         }
     ],
@@ -361,9 +361,9 @@
         }
     }
 };
-        chart_643efc5eac7141c3bf299da3c726e76a.setOption(option_643efc5eac7141c3bf299da3c726e76a);
+        chart_1a6d65d4a08a48ecadb62b74c499953e.setOption(option_1a6d65d4a08a48ecadb62b74c499953e);
             window.addEventListener('resize', function(){
-                chart_643efc5eac7141c3bf299da3c726e76a.resize();
+                chart_1a6d65d4a08a48ecadb62b74c499953e.resize();
             })
     </script>
 </body>

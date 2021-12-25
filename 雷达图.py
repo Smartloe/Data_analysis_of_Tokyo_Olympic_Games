@@ -59,20 +59,23 @@ def radar_chart(medals_data):
 			splitarea_opt=opts.SplitAreaOpts(is_show=False),
 			splitline_opt=opts.SplitLineOpts(is_show=False),
 		)
+	# ROC
 	radar.add(
-			series_name="USA",
-			color="#003049",
-			data=medals_data[0],
+			series_name="ROC",
+			color="#000000",
+			data=medals_data[4],
 			areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
 			linestyle_opts=opts.LineStyleOpts(width=2),
-		)
+		)	
+	# GBR
 	radar.add(
-			series_name="CHN",
-			color="red",
-			data=medals_data[1],
-			areastyle_opts=opts.AreaStyleOpts(opacity=0.3),
-			linestyle_opts=opts.LineStyleOpts(width=5),
-		)
+			series_name="GBR",
+			color="#000000",
+			data=medals_data[3],
+			areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
+			linestyle_opts=opts.LineStyleOpts(width=2),
+		)	
+	# JPN
 	radar.add(
 			series_name="JPN",
 			color="#000000",
@@ -80,20 +83,23 @@ def radar_chart(medals_data):
 			areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
 			linestyle_opts=opts.LineStyleOpts(width=2),
 		)
+	# CHN
 	radar.add(
-			series_name="GBR",
-			color="#000000",
-			data=medals_data[3],
+			series_name="CHN",
+			color="red",
+			data=medals_data[1],
+			areastyle_opts=opts.AreaStyleOpts(opacity=0.3),
+			linestyle_opts=opts.LineStyleOpts(width=5),
+		)
+	# USA
+	radar.add(
+			series_name="USA",
+			color="#003049",
+			data=medals_data[0],
 			areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
 			linestyle_opts=opts.LineStyleOpts(width=2),
 		)
-	radar.add(
-			series_name="ROC",
-			color="#000000",
-			data=medals_data[4],
-			areastyle_opts=opts.AreaStyleOpts(opacity=0.1),
-			linestyle_opts=opts.LineStyleOpts(width=2),
-		)
+
 	radar.render("雷达图.html")
 
 
