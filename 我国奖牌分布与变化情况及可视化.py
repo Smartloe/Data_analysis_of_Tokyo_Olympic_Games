@@ -268,7 +268,7 @@ def chart_three(data):
 									width="100%",
 									height="750px",
 									page_title="中国队金、银、铜牌占比",
-									bg_color={"type": "pattern", "image": JsCode("img"), "repeat": "no-repeat"},
+									# bg_color={"type": "pattern", "image": JsCode("img"), "repeat": "repeat"},
 									theme=ThemeType.INFOGRAPHIC,
 								)
 			)
@@ -284,7 +284,7 @@ def chart_three(data):
 	)
 	pie.add_js_funcs(
 		"""
-		var img = new Image(); img.src = '运动图标/金牌榜.png';
+		var img = new Image(); img.src = '运动图标/WPS图片-修改尺寸.png';
 		"""
 	)
 	pie.render("中国队金、银、铜牌占比.html")
